@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lista de peliculas</title>
+<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+<script src="../../js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<f:view>
+			<h3>BIENVENIDO #{user.nombre} A LA APPLICACIÓN WEB</h3>
+			<h:form>
+				<h:dataTable value="#{peliculaBO.peliculas}" var="pelicula"
+					class="table table-striped table-hover">
+					<h:column>
+						<f:facet name="header">ID</f:facet>    				
+               #{pelicula.id_pelicula}
+            </h:column>
+					<h:column>
+						<f:facet name="header">Nombre</f:facet>    				
+               #{pelicula.nombre}
+            </h:column>
+					<h:column>
+						<f:facet name="header">Director</f:facet>    				
+               #{pelicula.director}
+            </h:column>
+					<h:column>
+						<f:facet name="header">Genero</f:facet>    				
+               #{pelicula.genero}
+            </h:column>
+					<h:column>
+						<f:facet name="header">Protagonista</f:facet>    				
+               #{pelicula.protagonista}
+            </h:column>
+					<h:column>
+						<f:facet name="header">Editar</f:facet>
+						<h:commandButton action="#{peliculaBO.edit(pelicula.nombre)}" value="Editar"
+							class="btn btn-info" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Eliminar</f:facet>
+						<h:commandButton action="#{peliculaBO.eliminar(pelicula.nombre)}" value="Eliminar"
+							class="btn btn-info" />
+					</h:column>
+				</h:dataTable>
+
+				<h:commandLink action="addPeli" value="Nuevo" class="btn btn-info" />
+			</h:form>
+		</f:view>
+	</div>
+</body>
+</html>

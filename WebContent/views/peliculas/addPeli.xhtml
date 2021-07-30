@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Peliculas</title>
+	<link rel="stylesheet" href="../../assets/css/bootstrap.min.css" />
+	<script src="../../js/bootstrap.bundle.min.js"></script>
+</h:head>
+<body>
+	<div class="container-fluid">
+		<f:view>
+			<h3>Modificar o añadir pelicula</h3>
+			<h:form>
+				<div class="mb-3">
+					<label for="id_pelicula" class="form-label">ID (ignorar si se va a añadir una nueva):</label>
+					<h:inputText class="form-control" id="id_pelicula"
+						value="#{peliculaBO.pelicula.id_pelicula}" />
+				</div>
+				<div class="mb-3">
+					<label for="nombre" class="form-label">Nombre:</label>
+					<h:inputText class="form-control" id="nombre"
+						value="#{peliculaBO.pelicula.nombre}" />
+				</div>
+				<div class="mb-3">
+					<label for="director" class="form-label">Director:</label>
+					<h:inputText class="form-control" id="director"
+						value="#{peliculaBO.pelicula.director}" />
+				</div>
+				<div class="mb-3">
+					<label for="genero" class="form-label">Genero:</label>
+					<h:inputText class="form-control" id="curp"
+						value="#{peliculaBO.pelicula.genero}" />
+				</div>
+				<div class="mb-3">
+					<label for="protagonista" class="form-label">Protagonista:</label>
+					<h:inputText class="form-control" id="protagonista"
+						value="#{peliculaBO.pelicula.protagonista}" />
+				</div>
+				<h:commandLink action="#{peliculaBO.save}" value="Guardar"
+					class="btn btn-info" />
+			</h:form>
+		</f:view>
+	</div>
+</body>
+</html>
